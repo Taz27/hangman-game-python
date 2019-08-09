@@ -134,10 +134,10 @@ winsound.Beep(frequency, duration)
 
 winsound.PlaySound("SystemExit", winsound.SND_ALIAS)
 
-filename = 'fail-trombone-03.wav'
-winsound.PlaySound(filename, winsound.SND_FILENAME)
+#filename = 'fail-trombone-03.wav'
+#winsound.PlaySound(filename, winsound.SND_FILENAME)
 
-x = input()
+#x = input()
 print(x)
 
 y = 5
