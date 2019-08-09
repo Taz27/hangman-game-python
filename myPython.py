@@ -46,10 +46,10 @@ my_function("Honey Singh")
 
 def tri_recursion(k):
   if(k > 0):
-    result = k + tri_recursion(k-1)
-    print(result)
+	result = k + tri_recursion(k-1)
+	print(result)
   else:
-    result = 0
+	result = 0
   return result
 
 print("\n\nRecursion Example Results")
@@ -67,10 +67,10 @@ print(mydoubler(5))
 
 class Person:
   def __init__(self, name, age):
-    self.name = name
-    self.age = age
+	self.name = name
+	self.age = age
   def myfunc(self):
-    print("Hello my name is " + self.name)
+	print("Hello my name is " + self.name)
 
 p1 = Person("Mand", 36)
 p2 = Person("Chutiya", 42)
@@ -92,8 +92,7 @@ s1.myfunc()
 s2 = Student("Guchie", 44)
 s2.myfunc()
 
-x = dir(platform)
-print(x)
+#print(x)
 y = platform.system()
 print(y)
 
@@ -130,9 +129,9 @@ print("New PAtch3")
 import winsound
 frequency = 2500  # Set Frequency To 2500 Hertz
 duration = 1000  # Set Duration To 1000 ms == 1 second
-winsound.Beep(frequency, duration)
+#winsound.Beep(frequency, duration)
 
-winsound.PlaySound("SystemExit", winsound.SND_ALIAS)
+#winsound.PlaySound("SystemExit", winsound.SND_ALIAS)
 
 #filename = 'fail-trombone-03.wav'
 #winsound.PlaySound(filename, winsound.SND_FILENAME)
@@ -146,4 +145,35 @@ print(z)
 
 import random
 
-print(random.randrange(1,20))
+#print(random.randrange(1,20))
+str1 = "HARTAJ"
+l = len(str1)
+#print(l)
+m = int(l / 2) + 1
+print(m)
+i = 1
+#alreadyGen = str(9)
+
+while i <= m:
+	r = random.randrange(0,l-1)
+	print(str(r) + " Random Num")
+	if i > 1:
+		finR = alreadyGen.find(str(r))
+		print(alreadyGen)
+		print(finR)
+		if finR != -1:
+			continue
+		else:
+			alreadyGen = alreadyGen + str(r)
+			sChar = str1[r]
+			str1 = str1.replace(sChar, "_")
+			print(str1)
+	else:
+		#str1[r] = "_"
+		sChar = str1[r]
+		str1 = str1.replace(sChar, "_")
+		print(str1)
+		alreadyGen = str(r)
+	i += 1
+	print(alreadyGen)
+	#print(str1)
