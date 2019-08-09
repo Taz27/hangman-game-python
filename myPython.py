@@ -136,3 +136,14 @@ winsound.PlaySound("SystemExit", winsound.SND_ALIAS)
 
 filename = 'fail-trombone-03.wav'
 winsound.PlaySound(filename, winsound.SND_FILENAME)
+
+x = input()
+print(x)
+
+y = 5
+z = complex(50000000000000000000000000000)
+print(z)
+
+import random
+
+print(random.randrange(1,20))
