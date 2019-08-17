@@ -2,11 +2,13 @@ import random
 
 #print(random.randrange(1,20))
 str1 = "CROWN"
+word_lst = list(str1)
 l = len(str1)
 #print(l)
 m = int(l / 2) + 1
 print(m)
 i = 1
+maskedLetters = ""
 #alreadyGen = str(9)
 
 while i <= m:
@@ -22,13 +24,26 @@ while i <= m:
 			alreadyGen = alreadyGen + str(r)
 			sChar = str1[r]
 			str1 = str1.replace(sChar, "_")
+			maskedLetters = maskedLetters + sChar
 			print(str1)
 	else:
 		#str1[r] = "_"
 		sChar = str1[r]
 		str1 = str1.replace(sChar, "_")
+		maskedLetters = maskedLetters + sChar
 		print(str1)
 		alreadyGen = str(r)
 	i += 1
-	print(alreadyGen)
-	#print(str1)
+
+print(alreadyGen)
+print(str1)
+print("Masked Letters are: " + maskedLetters)
+maskedLetters = maskedLetters.upper()
+#print(str1)
+print("Make a guess. Enter Alphabet: ")
+print("-----------------------------")
+userInput = str(input())
+userInput = userInput.strip()
+userInput = userInput.upper()
+print(userInput)
+if userInput in maskedLetters:
