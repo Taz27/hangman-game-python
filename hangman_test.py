@@ -40,10 +40,20 @@ print(str1)
 print("Masked Letters are: " + maskedLetters)
 maskedLetters = maskedLetters.upper()
 #print(str1)
-print("Make a guess. Enter Alphabet: ")
-print("-----------------------------")
-userInput = str(input())
-userInput = userInput.strip()
-userInput = userInput.upper()
-print(userInput)
-if userInput in maskedLetters:
+
+#print(userInput)
+#if userInput in maskedLetters:
+while True:
+	print("Make a guess. Enter Alphabet: ")
+	print("-----------------------------")
+	userInput = str(input())
+	userInput = userInput.strip()
+	userInput = userInput.upper()
+	if userInput.isalpha() and len(userInput) == 1:
+		print("Input is Valid")
+		break
+	else:
+		print("Please only enter a single Alphabet:")
+		continue
+
+print(">>>>>>>>>>>")
