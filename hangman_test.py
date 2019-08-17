@@ -1,7 +1,7 @@
 import random
 
 #print(random.randrange(1,20))
-str1 = "CROWN"
+str1 = "HARTAJ"
 word_lst = list(str1)
 l = len(str1)
 #print(l)
@@ -9,6 +9,8 @@ m = int(l / 2) + 1
 print(m)
 i = 1
 maskedLetters = ""
+maskedWord = ""
+newWord = ""
 #alreadyGen = str(9)
 
 while i <= m:
@@ -23,23 +25,27 @@ while i <= m:
 		else:
 			alreadyGen = alreadyGen + str(r)
 			sChar = str1[r]
-			str1 = str1.replace(sChar, "_")
+			maskedWord = maskedWord.replace(sChar, "_")
 			maskedLetters = maskedLetters + sChar
-			print(str1)
+			print(maskedWord)
 	else:
 		#str1[r] = "_"
 		sChar = str1[r]
-		str1 = str1.replace(sChar, "_")
+		maskedWord = str1.replace(sChar, "_")
 		maskedLetters = maskedLetters + sChar
-		print(str1)
+		print(maskedWord)
 		alreadyGen = str(r)
 	i += 1
 
 print(alreadyGen)
-print(str1)
+print("Original word is: " + str1)
+print("Masked word is: " + maskedWord)
 print("Masked Letters are: " + maskedLetters)
 maskedLetters = maskedLetters.upper()
-#print(str1)
+maskedWord_lst = list(maskedWord)
+print(maskedWord_lst)
+#subWord = word_lst[1 + 1:]
+#print("Subword: " + str(subWord))
 
 #print(userInput)
 #if userInput in maskedLetters:
@@ -57,3 +63,35 @@ while True:
 		continue
 
 print(">>>>>>>>>>>")
+if userInput in maskedLetters:
+	print("Good Guess.")
+	alphaNum = word_lst.count(userInput)
+	#print("Num times exists: " + str(alphaNum))
+	if alphaNum == 1:
+		xIndex = word_lst.index(userInput)
+		maskedWord_lst[xIndex] = word_lst[xIndex]
+		print(maskedWord_lst)
+		for x in maskedWord_lst:
+			newWord = newWord + x
+		print("New Word After Guess: " + newWord)
+	else:
+		'''rInd = 0
+		while alphaNum != 0:
+			xIndex = word_lst.index(userInput)
+			maskedWord_lst[xIndex] = word_lst[xIndex]
+			#make a sub word after that position of that alphabet.
+			subWord = word_lst[xIndex + 1:]
+			rInd = subWord.index(userInput)
+			alphaNum = alphaNum - 1'''
+		i = 0
+		for a in maskedWord_lst:
+			if word_lst[i] == userInput:
+				maskedWord_lst[i] = userInput
+			i = i + 1
+		print(maskedWord_lst)
+		for x in maskedWord_lst:
+			newWord = newWord + x
+		print("New Word After Guess: " + newWord)
+
+else:
+	print("Wrong guess")
