@@ -1,4 +1,88 @@
 import random
+import winsound
+frequency = 2500  # Set Frequency To 2500 Hertz
+duration = 1000  # Set Duration To 1000 ms == 1 second
+
+
+banner = '''
+#     #    #    #     #  #####  #     #    #    #     #
+#     #   # #   ##    # #     # ##   ##   # #   ##    #
+#     #  #   #  # #   # #       # # # #  #   #  # #   #
+####### #     # #  #  # #  #### #  #  # #     # #  #  #
+#     # ####### #   # # #     # #     # ####### #   # #
+#     # #     # #    ## #     # #     # #     # #    ##
+#     # #     # #     #  #####  #     # #     # #     #
+'''
+
+codedBy = '''\
+********************************************************
+GAME PROGRAMMED BY: (T | A | R | A | N - M | A | N | D )
+********************************************************
+'''
+hanger = [
+"""
+________
+|      |
+|
+|
+|
+|             """,
+"""
+________
+|      |
+|      0
+|
+|
+|             """,
+"""
+________
+|      |
+|      0
+|     /
+|
+|             """,
+"""
+________
+|      |
+|      0
+|     /|
+|
+|             """,
+"""
+________
+|      |
+|      0
+|     /|\\
+|
+|             """,
+"""
+________
+|      |
+|      0
+|     /|\\
+|     /
+|             """,
+"""
+________
+|      |
+|      0
+|     /|\\
+|     / \\
+|
+~~ YOU GOT ME HANGED :( LOSER !!!"""]
+
+winPic = """
+   0
+~~ | ~~
+  / \\
+************
+~~ WINNER ~~
+************"""
+
+
+print(banner)
+print(codedBy)
+#print(winPic)
 
 #print(random.randrange(1,20))
 str1 = "HARTAJ"
@@ -16,6 +100,7 @@ newWord = ""
 alreadyGuessed = ""
 isGuessComplete = False
 numOfGuessesLeft = 7
+hangerCount = 0
 
 
 while i <= m:
@@ -91,6 +176,9 @@ while numOfGuessesLeft > 0 and isGuessComplete == False:
 		print("New Word After Guess: " + newWord)
 		if newWord == str1:
 			print("You fully guessed the word. You WIN *****")
+			print(winPic)
+			filename = 'Winning_Sound.wav'
+			winsound.PlaySound(filename, winsound.SND_FILENAME)
 			isGuessComplete = True
 		else:
 			newWord = ""
@@ -98,5 +186,12 @@ while numOfGuessesLeft > 0 and isGuessComplete == False:
 	else:
 		numOfGuessesLeft = numOfGuessesLeft - 1
 		print("Wrong guess. Chances remaining: " + str(numOfGuessesLeft))
+		print(hanger[hangerCount])
+		hangerCount = hangerCount + 1
 		if numOfGuessesLeft == 0:
-			print("GAME OVER ###### ----- You are a LOSER")
+			filename = 'game_over.wav'
+			winsound.PlaySound(filename, winsound.SND_FILENAME)
+			print("GAME OVER ****** You are a LOSER")
+		else:
+			filename = 'Loser_Sound.wav'
+			winsound.PlaySound(filename, winsound.SND_FILENAME)	
