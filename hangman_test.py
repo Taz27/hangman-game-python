@@ -82,8 +82,15 @@ print(banner)
 print(codedBy)
 #print(winPic)
 
+words = "penguin elephant parrot albatross tortoise leopard tiger anteater antelope rabbit peacock zebra giraffe sheep baboon camel eagle badger beaver rhino vulture bear crocodile kangaroo buffalo kinmgfisher ostrich koala dinosaur meerkat wolf"
+
+words_list = words.split()
+random.shuffle(words_list)
+print(words_list)
+
 #print(random.randrange(1,20))
-str1 = "HARTAJ"
+str1 = str(words_list[5])
+str1 = str1.upper()
 #convert string word to list.
 word_lst = list(str1)
 l = len(str1)
@@ -140,15 +147,17 @@ while i <= letters_to_mask_num:
 
 #print(alreadyGen)
 #print("Original word is: " + str1)
-print("You will be shown a Word. You have to guess the missing alphabets. (*HINT: The word is the name of an Animal.)")
+print("You will be shown a Word. You have to guess the missing alphabets. (*HINT: The word is the name of a Bird or an Animal.)")
 input("\nPress ENTER to continue...")
 print("\nGuess the Alphabets in this Word: " + format_Word(maskedWord))
+
 #print("Masked Letters are: " + maskedLetters)
 
 #Convert masked letters into Upper case and cast into a list.
 maskedLetters = maskedLetters.upper()
 maskedWord_lst = list(maskedWord)
 #print(maskedWord_lst)
+#print(word_lst)
 
 #Give 7 chances to the user to Keep guessing the letters in the word and until the full word is NOT guessed.
 #Run the loop 7 times and until full word is not guessed completely.
