@@ -229,7 +229,7 @@ for wrdz in words_list:
 				winsound.PlaySound(filename, winsound.SND_FILENAME)
 				#print("")
 				print("\nGAME OVER ****** You are a LOSER")
-				print("\nThe word you were guessing was: " + format_Word(str1))
+				print("\nThe word you were trying to guess was: " + format_Word(str1))
 				print("\n>>>>>>>>Press ENTER to continue...(Enter 'q' to Quit the game)")
 				usrInp = str(input())
 				usrInp = usrInp.upper()
