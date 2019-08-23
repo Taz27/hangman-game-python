@@ -95,7 +95,10 @@ print(banner)
 print(codedBy)
 #print(winPic)
 
-words = "penguin elephant parrot albatross tortoise leopard tiger anteater antelope rabbit peacock zebra giraffe sheep baboon camel eagle badger beaver rhino vulture bear crocodile kangaroo buffalo kingfisher ostrich koala dinosaur meerkat wolf"
+f = open("list_of_animals.txt", "r")
+words = f.read()
+f.close()
+#words = "penguin elephant parrot albatross tortoise leopard tiger anteater antelope rabbit peacock zebra giraffe sheep baboon camel eagle badger beaver #rhino vulture bear crocodile kangaroo buffalo kingfisher ostrich koala dinosaur meerkat wolf"
 
 words_list = words.split()
 random.shuffle(words_list)
