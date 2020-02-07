@@ -95,15 +95,17 @@ print(codedBy)
 f = open("list_of_animals.txt", "r")
 words = f.read()
 f.close()
-#words = "penguin elephant parrot albatross tortoise leopard tiger anteater antelope rabbit peacock zebra giraffe sheep baboon camel eagle badger beaver #rhino vulture bear crocodile kangaroo buffalo kingfisher ostrich koala dinosaur meerkat wolf"
+
+# Words in text file
+# words = "penguin elephant parrot albatross tortoise leopard tiger anteater antelope
+# rabbit peacock zebra giraffe sheep baboon camel eagle badger beaver #rhino vulture bear
+# crocodile kangaroo buffalo kingfisher ostrich koala dinosaur meerkat wolf"
 
 words_list = words.split()
 random.shuffle(words_list)
-#print(words_list)
 
 for wrdz in words_list:
 
-	#print(random.randrange(1,20))
 	str1 = str(wrdz)
 	str1 = str1.upper()
 	#convert string word to list.
@@ -127,8 +129,7 @@ for wrdz in words_list:
 		#print(str(r) + " Random Num") show random number generated.
 		if i > 1: # If first random number has been generated, check if the random numbers generated after that are unique.
 			finR = alreadyGen.find(str(r)) #check if this random num has been already generated.
-			#print(alreadyGen)
-			#print(finR)
+			
 			if finR != -1: #if the random number is NOT new, then continue.
 				continue
 			else: #if random number is unique, record it, get the character at that index in word, replace it with "_"
@@ -136,36 +137,27 @@ for wrdz in words_list:
 				sChar = str1[r]
 				maskedWord = maskedWord.replace(sChar, "_")
 				maskedLetters = maskedLetters + sChar #Keep a record of letters that are masked.
-				#print(maskedWord)
 		else:
 			#if random number is being generated first time, no need to check if it is unique.
 			#Replace the character at the random index with "_"
 			sChar = str1[r]
 			maskedWord = str1.replace(sChar, "_")
 			maskedLetters = maskedLetters + sChar #Keep a record of masked letter.
-			#print(maskedWord)
 			alreadyGen = str(r) #Keep a record of random number generated.
 		i += 1
 
-	#print(alreadyGen)
-	#print("Original word is: " + str1)
 	print("\nYou will be shown a Word. You have to guess the missing alphabets. \nYou have only 7 chances. (*HINT: The word is the name of a Bird or an Animal.)")
 	input("\nPress ENTER to continue...")
 	print("\nGuess the Alphabets in this Word: " + format_Word(maskedWord))
 
-	#print("Masked Letters are: " + maskedLetters)
-
 	#Convert masked letters into Upper case and cast into a list.
 	maskedLetters = maskedLetters.upper()
 	maskedWord_lst = list(maskedWord)
-	#print(maskedWord_lst)
-	#print(word_lst)
 
 	#Give 7 chances to the user to Keep guessing the letters in the word and until the full word is NOT guessed.
 	#Run the loop 7 times and until full word is not guessed completely.
 	while numOfGuessesLeft > 0 and isGuessComplete == False:
 		while True: #indefinte loop to get valid input from user.
-			#print("Already Guessed: " + alreadyGuessed)
 			print("\nMake a Guess. Enter an Alphabet: 						(Enter 'quit' to quit the game.)")
 			print("------------------------------")
 			userInput = str(input())
@@ -196,7 +188,6 @@ for wrdz in words_list:
 				if word_lst[i] == userInput:
 					maskedWord_lst[i] = userInput
 				i = i + 1
-			#print(maskedWord_lst)
 			newWord = convert_wordList_to_string(maskedWord_lst)
 			print("\nGuessed Word So Far: " + format_Word(newWord))
 			if newWord == str1: #Check if the new word after guess is equal to the original word.
@@ -226,7 +217,6 @@ for wrdz in words_list:
 			if numOfGuessesLeft == 0: #If all chances are used, Let the user know.
 				filename = './sounds/game_over.wav'#play game over sound.
 				winsound.PlaySound(filename, winsound.SND_FILENAME)
-				#print("")
 				print("\nGAME OVER ****** You are a LOSER")
 				print("\nThe word you were trying to guess was: " + format_Word(str1))
 				print("\n>>>>>>>>Press ENTER to continue...(Enter 'q' to Quit the game)")
@@ -239,5 +229,4 @@ for wrdz in words_list:
 			else:
 				filename = './sounds/Loser_Sound.wav' #play wrong guess sound if still guesses are remaining.
 				winsound.PlaySound(filename, winsound.SND_FILENAME)
-				#newWord = convert_wordList_to_string(maskedWord_lst)
 				print("\nGuessed Word So Far: " + format_Word(convert_wordList_to_string(maskedWord_lst)))
