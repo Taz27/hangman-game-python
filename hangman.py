@@ -1,7 +1,5 @@
 import random
-import winsound
-frequency = 2500  # Set Frequency To 2500 Hertz
-duration = 1000  # Set Duration To 1000 ms == 1 second
+import winsound #for playing sounds
 
 banner = '''
 #     #    #    #     #  #####  #     #    #    #     #
@@ -93,7 +91,6 @@ def convert_wordList_to_string(w_list):
 
 print(banner)
 print(codedBy)
-#print(winPic)
 
 f = open("list_of_animals.txt", "r")
 words = f.read()
@@ -105,7 +102,6 @@ random.shuffle(words_list)
 #print(words_list)
 
 for wrdz in words_list:
-	#print(wrdz)
 
 	#print(random.randrange(1,20))
 	str1 = str(wrdz)
@@ -206,7 +202,7 @@ for wrdz in words_list:
 			if newWord == str1: #Check if the new word after guess is equal to the original word.
 				print("\nAWESOME...!!! You fully Guessed the Word. You WIN ********* :)")
 				print(winPic)
-				filename = 'Winning_Sound.wav'
+				filename = './sounds/Winning_Sound.wav'
 				winsound.PlaySound(filename, winsound.SND_FILENAME)
 				isGuessComplete = True #flag that full word is guessed.
 				print("\n>>>>>>>>Press ENTER to continue...(Enter 'q' to Quit the game)")
@@ -218,7 +214,7 @@ for wrdz in words_list:
 					exit()
 			else: #If word is not fully guessed yet.
 				newWord = ""
-				filename = 'Cheering_Sound.wav'
+				filename = './sounds/Cheering_Sound.wav'
 				winsound.PlaySound(filename, winsound.SND_FILENAME)
 
 		else:
@@ -228,7 +224,7 @@ for wrdz in words_list:
 			print(hanger[hangerCount]) #Show related HANGMAN graphic
 			hangerCount = hangerCount + 1 #Increment the hangman graphic counter.
 			if numOfGuessesLeft == 0: #If all chances are used, Let the user know.
-				filename = 'game_over.wav'#play game over sound.
+				filename = './sounds/game_over.wav'#play game over sound.
 				winsound.PlaySound(filename, winsound.SND_FILENAME)
 				#print("")
 				print("\nGAME OVER ****** You are a LOSER")
@@ -241,7 +237,7 @@ for wrdz in words_list:
 					#print("QUITING....")
 					exit()
 			else:
-				filename = 'Loser_Sound.wav' #play wrong guess sound if still guesses are remaining.
+				filename = './sounds/Loser_Sound.wav' #play wrong guess sound if still guesses are remaining.
 				winsound.PlaySound(filename, winsound.SND_FILENAME)
 				#newWord = convert_wordList_to_string(maskedWord_lst)
 				print("\nGuessed Word So Far: " + format_Word(convert_wordList_to_string(maskedWord_lst)))
